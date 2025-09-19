@@ -7,7 +7,7 @@ class CompHeader extends HTMLElement{
             </div>
             <div class="nav">
                 <div class="nav-secciones">
-                    <a href="">Inicio</a>
+                    <a href="/app-web/html/index.html">Inicio</a>
                 </div>
                 <div class="nav-secciones">
                     <a href="">Productos</a>
@@ -29,7 +29,7 @@ class CompHeader extends HTMLElement{
                     <a href="">Usuario</a>
                     <ul class="usuario-secciones">
                         <li><a href="">Ingresar</a></li>
-                        <li><a href="">Registrarse</a></li>
+                        <li><a href="/app-web/html/registro.html">Registrarse</a></li>
                     </ul>
                 </div>
             </div>
