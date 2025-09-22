@@ -105,7 +105,7 @@ class CompFormRegistro extends HTMLElement{
             </div>
             <div class=" fila-completa">
                 <button type="submit" class="formularioBtn">Enviar</button>
-                <p class="formularioMensajeExito" >Formulario enviado exitosamente!</p>
+                <p class="formularioMensajeExito"></p>
             </div>
         </form>`
     }

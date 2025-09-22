@@ -1163,18 +1163,27 @@ main{
             }
 
         }     
-          #formularioMensajeError{
+        #formularioMensajeError{
             color:  red;
             opacity: 0;
         }
-        .formularioMensajeExito{
-            opacity: 0;
+        .formularioMensajeExito span{
+            font-weight: 700;
+            text-shadow: 0px 0 5px rgba(14, 44, 236, 0.55);
+            font-size: 150%;
         }
-       
-        
-        
     }
-   
+
+    /* quitar el toggle por defecto de las claves */
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+    display: none;
+    }
+
+    input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    }
 
 }
 

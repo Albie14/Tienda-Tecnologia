@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     const compFormulario = document.querySelector('comp-form-registro');
     const formularioRegistro = compFormulario.querySelector('.formulario-registro');
-    
+   
     function validacionFormulario (e){
         e.preventDefault();
 
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         //Alarmas de error de los inputs
         const contenedorInput = compFormulario.querySelectorAll('.input');
         const msjLeyendaInput = compFormulario.querySelectorAll('.leyendaInput');
-        const placeholder = compFormulario.querySelectorAll('input[placeholder]')
         const msjErrorInput = compFormulario.querySelectorAll('.errorInput');
         const iconoError = compFormulario.querySelectorAll('.iconoError');
         const msjErrorGeneral = compFormulario.querySelector('#formularioMensajeError');
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             formularioValido = false;
         }
 
-        if(password2 != password){
+        if(password2.value.trim() !== password.value.trim() || password2.value == ''){
             alaramasErrorDatoinput(contenedorInput[3], iconoError[3], msjLeyendaInput[3], msjErrorInput[3], msjErrorGeneral);
             formularioValido = false;
         }
@@ -72,7 +71,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
 
         if(formularioValido){
-            console.log('bien')
+            const datos = {
+                nombre: nombre.value,
+                apellido: apellido.value,
+                correo: correo.value,
+                telefono: telefono.value,
+                clave: password.value,
+                terminos: terminosCondiciones.checked
+            };
+            fetch('http://localhost/tienda-tecnologia-php/clientes/registro-usuarios.php',{
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            })
+            .then(res => res.json())
+        
+            msjUsuarioRegistrado(nombre.value , apellido.value);
+
+            setTimeout(()=>{
+                formularioRegistro.reset();
+                window.location.href = '/app-web/html/index.html';
+            }, 5000)
         }
 
 
@@ -118,6 +139,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
             });
         })
 
-        OCULTAR OJO POR DEFECTO
 
+    function msjUsuarioRegistrado(nombre, apellido){
+        const contedorMsj = formularioRegistro.querySelector(".formularioMensajeExito");
+        const textoMsj = document.createElement("span");
+        textoMsj.textContent =  `Hola, ${nombre} ${apellido}, has sido registrado exitosamente`;
+
+        contedorMsj.innerHTML = "";
+        contedorMsj.appendChild(textoMsj);
+    }
+        
 })
