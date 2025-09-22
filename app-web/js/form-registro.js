@@ -1,0 +1,123 @@
+document.addEventListener('DOMContentLoaded', ()=>{
+    const expresioneRegularesForm = {
+        nombre: /^[a-zA-ZÀ-ÿ\s]{1,12}$/, // Letras y espacios, pueden llevar acentos.
+        password: /^.{4,12}$/, // 4 a 12 digitos.
+        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+    };
+
+    const compFormulario = document.querySelector('comp-form-registro');
+    const formularioRegistro = compFormulario.querySelector('.formulario-registro');
+    
+    function validacionFormulario (e){
+        e.preventDefault();
+
+        let nombre = compFormulario.querySelector('#nombre');
+        let apellido = compFormulario.querySelector('#apellido');
+        let password = compFormulario.querySelector('#password');
+        let password2 = compFormulario.querySelector('#password2');
+        let correo = compFormulario.querySelector('#correo');
+        let telefono = compFormulario.querySelector('#telefono');
+        let terminosCondiciones = compFormulario.querySelector('#terminos-condiciones');
+
+        //Alarmas de error de los inputs
+        const contenedorInput = compFormulario.querySelectorAll('.input');
+        const msjLeyendaInput = compFormulario.querySelectorAll('.leyendaInput');
+        const placeholder = compFormulario.querySelectorAll('input[placeholder]')
+        const msjErrorInput = compFormulario.querySelectorAll('.errorInput');
+        const iconoError = compFormulario.querySelectorAll('.iconoError');
+        const msjErrorGeneral = compFormulario.querySelector('#formularioMensajeError');
+
+        let formularioValido = true;
+
+        if(!expresioneRegularesForm.nombre.test(nombre.value.trim())){
+            alaramasErrorDatoinput(contenedorInput[0], iconoError[0], msjLeyendaInput[0], msjErrorInput[0], msjErrorGeneral);
+            formularioValido = false;
+        }
+
+        if(!expresioneRegularesForm.nombre.test(apellido.value.trim())){
+            alaramasErrorDatoinput(contenedorInput[1], iconoError[1], msjLeyendaInput[1], msjErrorInput[1], msjErrorGeneral);
+            formularioValido = false;
+        }
+
+        if(!expresioneRegularesForm.password.test(password.value.trim())){
+            alaramasErrorDatoinput(contenedorInput[2], iconoError[2], msjLeyendaInput[2], msjErrorInput[2], msjErrorGeneral);
+            formularioValido = false;
+        }
+
+        if(password2 != password){
+            alaramasErrorDatoinput(contenedorInput[3], iconoError[3], msjLeyendaInput[3], msjErrorInput[3], msjErrorGeneral);
+            formularioValido = false;
+        }
+        if(!expresioneRegularesForm.correo.test(correo.value.trim())){
+            alaramasErrorDatoinput(contenedorInput[4], iconoError[4], msjLeyendaInput[4], msjErrorInput[4], msjErrorGeneral);
+            formularioValido = false;
+        }
+
+        if(!expresioneRegularesForm.telefono.test(telefono.value.trim())){
+            alaramasErrorDatoinput(contenedorInput[5], iconoError[5], msjLeyendaInput[5], msjErrorInput[5], msjErrorGeneral);
+            formularioValido = false;
+        }
+
+        if(!terminosCondiciones.checked){
+            msjErrorInput[6].classList.remove('ocultarMsjInput')
+            msjErrorGeneral.style.opacity = 1;
+            terminosCondiciones.classList.add('errorInputCheck');
+                setTimeout(()=>{
+                    msjErrorInput[6].classList.add('ocultarMsjInput')
+                    msjErrorGeneral.style.opacity = 0;
+                    terminosCondiciones.classList.remove('errorInputCheck');
+                }, 3000);
+            formularioValido = false;
+        }
+
+        if(formularioValido){
+            console.log('bien')
+        }
+
+
+
+    }
+            
+    formularioRegistro.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        validacionFormulario(e);
+    })
+
+
+    //Marcas de errores visuales en inputs
+    function alaramasErrorDatoinput(contInput, icono, leyenda, msjError, msjErrorGeneral){
+        contInput.classList.add('inputError');
+        icono.style.opacity = 1;
+        leyenda.classList.add('ocultarMsjInput');
+        msjError.classList.remove('ocultarMsjInput');
+        msjErrorGeneral.style.opacity = 1;
+        
+            setTimeout(()=>{
+                contInput.classList.remove('inputError');
+                icono.style.opacity = 0;
+
+                msjError.classList.add('ocultarMsjInput');
+                leyenda.classList.remove('ocultarMsjInput');
+                msjErrorGeneral.style.opacity = 0;
+            }, 3000)
+    }
+
+    //toogle ojo; mostrar - ocultar clave
+    const botonesOjoClave = document.querySelectorAll('.icono-toogle-clave-registro');
+    botonesOjoClave.forEach(ojo=>{
+        ojo.addEventListener('click', ()=>{
+            const inputID = ojo.dataset.input; /*toma el ID de cada input enlazados con "data-input=" provenient del id de input*/
+            const input = document.getElementById(inputID) /*asigna el id al input seleccionado a traves del data input*/
+            const typeInput = input.getAttribute('type') /*reconoce el type (password o text) del input seleccionado*/
+            
+            input.setAttribute('type', typeInput === 'password' ? 'text' : 'password');
+            ojo.classList.toggle('fa-eye');
+            ojo.classList.toggle('fa-eye-slash');
+            ojo.classList.toggle('mostrar-clave');
+            });
+        })
+
+        OCULTAR OJO POR DEFECTO
+
+})

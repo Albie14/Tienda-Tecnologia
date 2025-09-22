@@ -69,7 +69,6 @@ input[type=number] {
     align-items: center;
     border-radius: 60px;
     margin-top: 5%;
-    backdrop-filter: blur(10px);
     background-color: var(--backgroud-espejo);
     position: relative;
     z-index: 20;
@@ -134,7 +133,7 @@ input[type=number] {
                 transition: all 0.2s ease;
                 border-radius: 6px;
                 padding: 20% 10px;
-                
+                backdrop-filter: blur(10px);
         
                 li{
                     border-radius: 60px;
@@ -527,7 +526,6 @@ main{
     height: fit-content; 
     min-height: auto;
     max-height: 100vh;
-    backdrop-filter: blur(10px);
     background-color: var(--backgroud-espejo);  
     border-radius: 60px;
     padding: 2% 2% 2% 2%;
@@ -807,7 +805,6 @@ main{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    backdrop-filter: blur(10px);
     background-color: var(--backgroud-espejo);  
     border-radius: 60px;
 
@@ -831,7 +828,6 @@ main{
     margin: 2% 5%;
     width: 90%;
     height: 15%;
-    backdrop-filter: blur(10px);
     background-color: var(--backgroud-espejo);  
     border-radius: 60px;
     padding: 0.5% 2%;
@@ -922,7 +918,7 @@ main{
     
 }
 
-.comp-regitro{
+.comp-form-regitro{
     width: 70%;
     height: 80vh;
     display: flex;
@@ -932,6 +928,7 @@ main{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+
         
         .formularioGrupo{
             grid-column: span 1;
@@ -940,6 +937,7 @@ main{
             flex-direction: column;
             justify-content: space-between;
             border: 2px solid transparent;
+            backdrop-filter: blur(10px);
             border-bottom-left-radius: 10px;
             border-top-right-radius: 10px;
             border-image-source: linear-gradient(to left, #00f, transparent);
@@ -1011,20 +1009,33 @@ main{
                             }
                         }
                     }
+                
+
+
+
 
                     .fa-circle-xmark{
                         opacity: 0;
+                        color: rgba(249, 3, 3, 0.808);
+                        transition: all ease 0.3s;
                     }
             
                 }
 
                 .inputError{
-                    border: 2px solid rgba(249, 3, 3, 0.808);
-                    i{
-                        color:  rgba(249, 3, 3, 0.808);
+                    box-shadow: 0 0 8px rgba(249, 3, 3, 0.808);
+                    transition: all ease 0.3s;
+                    border: 1px solid red;
+
+                    input::placeholder{
+                        color:  red;
+                        opacity: 0.8;
+                        transition: all ease 0.3s;
                     }
                 }
 
+              
+                
             }
             /* para transicion al activar el input   */
             .formularioGrupoInput:focus-within .formularioLabel,
@@ -1055,6 +1066,7 @@ main{
                     font-style: oblique;
                     margin: 0;
                     opacity: 1;
+                    transition: opacity 0.9s ease-out;
                 }
                 .errorInput{
                     display: flex ;
@@ -1063,12 +1075,13 @@ main{
                     margin: 0;
                     color: red;
                     opacity: 1;
+                    transition: opacity 0.9s ease-out;
                     
                 }
                 .ocultarMsjInput{
                     opacity: 0;
                     visibility: hidden;
-                    transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+                    transition: opacity 0.4s ease;
                 }
             }
         /* fila termino, msj error genetal y btn submit */
@@ -1082,16 +1095,45 @@ main{
             color: var(--azul-oscuro-text);
             font-size: 90%;
 
+            
+                .input{
+                    width: 50%;
+                }
+
+                span{
+                    width: 80%;
+                }
             #descripcion-terminos{
                 border: none;
                 background-color: transparent;
                 cursor: pointer;
                 font-size: 90%;
+                font-style: oblique;
+                transition: all ease 0.2s;
                 &:hover{
                     text-shadow: 0 0 2px rgba(14, 44, 236, 0.55);
+                    font-style: normal;
+
                 }
+
+
+            }
+            input[type="checkbox"] {
+                cursor: pointer;
+                accent-color:  rgba(14, 44, 236, 0.55);
+                height: 80%;
+                margin-right: 2px;
+                transition: all ease 0.2s;
             }
 
+            .errorInputCheck{
+                accent-color: red;
+                background-color: white;
+                border: 2px solid red;
+                box-shadow: inset 0 0 10px rgba(243, 5, 5, 0.952);
+
+            }
+            
             &:last-of-type{
                 height: 5rem;
                 display: flex;
@@ -1105,6 +1147,8 @@ main{
                     transition: all ease 0.2s;
                     position: relative;
                     background-color: var(--azul-claro-background);
+                    color: var(--azul-cielo-text);
+                    font-weight: 600;
                     border: 2px solid #ccc;
                     font-weight: 700;
                     cursor: pointer;
