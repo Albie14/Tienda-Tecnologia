@@ -796,11 +796,10 @@ main{
         opacity: 1;
     }
 }
-                
+/* Estilos section        */
 .comp-section{
     width: 90%;
     height: 50%;
-    box-sizing: border-box;
     padding: 0 1%;
     display: flex;
     justify-content: space-evenly;
@@ -808,18 +807,31 @@ main{
     background-color: var(--backgroud-espejo);  
     border-radius: 60px;
 
-    img{
+    .contenedor-img{
         width: 15%;
-        height: 80%;
+        height: 90%;
         border-bottom: 2px solid  transparent;
-
         cursor: pointer;
         transition: all ease 0.2s;
+        perspective: 500px;
+        display: flex;
+        align-items: center;
+        /* background: transparent; */
+        /* background-size: 100% 100%; */
+        /* background-color: red; */
+        transition: transform 0.5s ease;
+        border-radius: 40px;
 
-        &:hover{
-            scale: 1.15;
-            
-            /* border-radius: 40px; */
+        img{
+            width: 100%;
+            height: 90%;
+            transition: transform 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        &:hover img{
+            transform: translateZ(80px);
+            transition: transform 0.5s ease;
         }
     }
 }
