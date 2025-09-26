@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     let index = 0;
     const totalSlides = slides.length;
-    const tiempo = 10000; //tiempo de cambio entre un slide y otro
+    const tiempo = 5000; //tiempo de cambio entre un slide y otro
 
     function mostrarSlide(i) {
         carrusel.style.transform = `translateX(-${i * 100}%)`;

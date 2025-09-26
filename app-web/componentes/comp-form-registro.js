@@ -107,7 +107,8 @@ class CompFormRegistro extends HTMLElement{
                 <button type="submit" class="formularioBtn">Enviar</button>
                 <p class="formularioMensajeExito"></p>
             </div>
-        </form>`
+        </form>`;
     }
 }
+
 customElements.define('comp-form-registro', CompFormRegistro);

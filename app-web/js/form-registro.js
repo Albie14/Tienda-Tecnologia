@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     })
 
 
-    //Marcas de errores visuales en inputs
+    /*Marcas de errores visuales en inputs*/
     function alaramasErrorDatoinput(contInput, icono, leyenda, msjError, msjErrorGeneral){
         contInput.classList.add('inputError');
         icono.style.opacity = 1;

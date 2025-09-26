@@ -66,7 +66,9 @@ class SubCompCarrusel extends HTMLElement{
                     </div>
                 </div>
             </div>
-        </div>`
+        </div>`;
     }
+    
+    
 }
 customElements.define('sub-comp-carrusel', SubCompCarrusel);
