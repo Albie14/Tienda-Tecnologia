@@ -54,6 +54,7 @@ input[type=number] {
     min-height: 100vh;
     height: auto;
     z-index: 1;
+    view-transition-name: vista;
 }
 
 .vista.active {
@@ -65,20 +66,27 @@ input[type=number] {
     position: relative;
     z-index: 2;
     height: 100%;
-
-
 }
-@keyframes aparecer {
-  0% {
-    opacity: 0;
-    mask-size: 100% 0%;
-  }
-  100% {
-    opacity: 1;
-    mask-size: 100% 100%;
-  }
+/* transiciiones entre vistas */
+::view-transition-old(vista),
+::view-transition-new(vista){
+    animation-duration: 0.5s;
+}
+::view-transition-old(vista){
+    animation: vista-saliente 0.2s ease-in forwards;
+}
+::view-transition-new(vista){
+    animation: vista-entrante 0.2s ease-in forwards;
+}
+@keyframes vista-saliente {
+    from{opacity: 1;}
+    to{opacity: 0;}
 }
 
+@keyframes vista-entrante {
+    from{opacity: 0;}
+    to{opacity: 1; }
+}
 .header{
     width: 90%;
     height: 15vh;
@@ -965,7 +973,6 @@ main{
             flex-direction: column;
             justify-content: space-between;
             border: 2px solid transparent;
-            backdrop-filter: blur(10px);
             border-bottom-left-radius: 10px;
             border-top-right-radius: 10px;
             border-image-source: linear-gradient(to left, #00f, transparent);
@@ -973,8 +980,7 @@ main{
             border-image-width: 2px;
             border-image-outset: 0;
             border-image-repeat: stretch;
-            -webkit-mask-image: radial-gradient(circle, black 98%, transparent 100%);
-            mask-image: radial-gradient(circle, black 98%, transparent 100%);
+
             .formularioGrupoInput{
                 position: relative;
                 width: 80%;
