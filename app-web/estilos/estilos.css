@@ -544,19 +544,16 @@ input[type=number] {
 
 main{   
     display: flex;
-    align-items: center;
+    align-items: stretch    ;
     justify-content: space-around;
     margin: 5%;
     width: 90%;
-    height: fit-content; 
-    min-height: auto;
-    max-height: 70vh;
+    height: 70vh;
     background-color: var(--backgroud-espejo);  
     border-radius: 60px;
     padding: 2% 2% 2% 2%;
     box-sizing: border-box;
     color: var(--azul-oscuro-text);
-
 }
 
 
@@ -1201,6 +1198,173 @@ main{
     }
 }
 
+.comp-form-ingresar{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .form-ingresar{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-around;
+        height: 90%;
+        width: 60%;
+    }
+        .formularioGrupo{
+            grid-column: span 1;
+            height: 4rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            justify-content: space-between;
+            border: 2px solid transparent;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-image-source: linear-gradient(to left, #00f, transparent);
+            border-image-slice: 1;
+            border-image-width: 2px;
+            border-image-outset: 0;
+            border-image-repeat: stretch;
+            /* border: 1px solid yellow; */
+
+            .formularioGrupoInput{
+                position: relative;
+                width: 80%;
+                height: 70%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .formularioLabel{
+                    position: absolute;
+                    top: 15%;
+                    left: 50%;
+                    transform: translate(-50%, -50%); 
+                    width: auto;
+                    padding: 0 1rem;
+                    font-size: 0.9rem;
+                    white-space: nowrap;   
+                    display: inline-block;
+                    font-weight: 700;
+                    letter-spacing: 0.1rem;
+                    font-family: 'Parkinsans', sans-serif;
+                    background-color: var(--azul-cielo-text);
+                    border-radius: 5px;
+                    color: white;
+                    z-index: 20;
+                    transition: all 0.3s ease;
+                    pointer-events: none;     
+                    opacity: 0;
+            
+                }
+                .input{
+                    height: 80%;
+                    width: 100%;
+                    border: 1px solid var(--azul-cielo-text);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;  
+                    border-radius: 5px;
+                    padding: 0 2%;
+                    box-sizing: border-box;
+                    input{
+                        border: none;
+                        height: 90%;
+                        background-color: transparent;
+                        &::placeholder{
+                            font-size: 90%;
+                            letter-spacing: 10%;
+                            font-family: 'Nova Round', sans-serif;
+                            transition:  opacity 0.2s ease;
+                            color: var(--azul-cielo-text);
+                        }
+                        &:focus{
+                            outline: none;
+                            border: none;
+
+                            &::placeholder{
+                                opacity: 0;
+                            }
+                        }
+                    }
+                    .fa-circle-xmark{
+                        opacity: 0;
+                        color: rgba(249, 3, 3, 0.808);
+                        transition: all ease 0.3s;
+                    }
+                }
+                .inputError{
+                    box-shadow: 0 0 8px rgba(249, 3, 3, 0.808);
+                    transition: all ease 0.3s;
+                    border: 1px solid red;
+
+                    input::placeholder{
+                        color:  red;
+                        opacity: 0.8;
+                        transition: all ease 0.3s;
+                    }
+                }
+            }
+            /* para transicion al activar el input   */
+            .formularioGrupoInput:focus-within .formularioLabel,
+            .formularioInput:not(:placeholder-shown) ~ .formularioLabel {
+                opacity: 1;
+                transition: all ease 0.5s;
+
+            }
+            .formularioGrupoInput:focus-within .input,
+            .formularioInput:not(:placeholder-shown) ~ .input {
+                border: 2px solid var(--azul-cielo-text); 
+                box-shadow: 0 0 5px rgba(31, 58, 236, 0.5);
+                transition: all 0.3s ease;
+            }
+
+          
+        }
+        .formularioBtn{
+                align-self: center;
+                    width: 50%;
+                    height: 3em;
+                    border-radius: 60px;
+                    transition: all ease 0.2s;
+                    position: relative;
+                    background-color: var(--azul-claro-background);
+                    color: var(--azul-cielo-text);
+                    font-weight: 600;
+                    border: 2px solid #ccc;
+                    font-weight: 700;
+                    cursor: pointer;
+                    margin: 0;
+                &:hover{
+                    background-color: var(--azul-claro-background);
+                    color: var(--azul-oscuro-text);
+                    box-shadow: var(--sombra-interna-contenedor);
+                }
+                }
+                #cambiar-recup-clave{
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                font-size: 90%;
+                font-style: oblique;
+                transition: all ease 0.2s;
+                text-align: right;
+                &:hover{
+                    text-shadow: 0 0 2px rgba(14, 44, 236, 0.55);
+                    font-style: normal;
+                    
+                }
+            }
+
+}
 .visible{
     display: flex;
 }
