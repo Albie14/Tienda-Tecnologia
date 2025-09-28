@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function cambiarVista(ruta){
         vistas.forEach(vista=> {
             vista.classList.remove("active");
+            //transicion suave entre vistas
             vista.style.viewTransitionName = "none";
         
         });
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rutaDestino = document.querySelector(`.vista[data-route="${ruta}"]`);
         if(rutaDestino){
             rutaDestino.classList.add("active");
+            //transicion suave entre vistas
             rutaDestino.style.viewTransitionName = "vista";
         }
     }
@@ -50,29 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     navegar("/inicio")
-    // function navegar(ruta) {
-    //     // ocultar todas
-    //     vistas.forEach(vista => vista.classList.remove("active"));
 
-    //     // mostrar la que coincide con data-route
-    //     const destino = document.querySelector(`.vista[data-route="${ruta}"]`);
-    //     if (destino) {
-    //     destino.classList.add("active");
-    //     } else {
-    //     console.warn("Ruta no encontrada:", ruta);
-    //     }
-    // }
-    // interceptar clicks en los <a>
-    // enlaces.forEach(enlace => {
-    //     enlace.addEventListener("click", e => {
-    //     e.preventDefault(); // evitar que recargue
-    //     const ruta = enlace.getAttribute("data-route");
-    //     navegar(ruta);
-    //     });
-    // });
+    const formIngresar = document.querySelector('.form-ingresar');
+    const btnCmabiarRecuperarClave = document.getElementById('cambiar-recup-clave');
+    const formCambiarRecuperarClave = document.querySelector('.forms-cambiar-recup-clave')
 
-    // iniciar en /inicio
-    // navegar("/inicio");
+    // btnCmabiarRecuperarClave.addEventListener('click', ()=>{
+        
 
-   
+    //     formIngresar.classList.add('ocultarElemento');
+    //     setTimeout(()=>{
+    //         formIngresar.classList.add('oculto')
+    //     }, 400)
+    //        formCambiarRecuperarClave.classList.add('mostrarElemento');
+    // setTimeout(()=>{
+    //         formIngresar.classList.add('oculto')
+    //     formCambiarRecuperarClave.classList.remove('oculto');
+    // }, 300)
+
+    // })
+ 
+
 });

@@ -1215,8 +1215,8 @@ main{
         align-items: stretch;
         justify-content: space-around;
         height: 90%;
-        width: 60%;
-    }
+        width: 80%;
+    
         .formularioGrupo{
             grid-column: span 1;
             height: 4rem;
@@ -1233,7 +1233,6 @@ main{
             border-image-width: 2px;
             border-image-outset: 0;
             border-image-repeat: stretch;
-            /* border: 1px solid yellow; */
 
             .formularioGrupoInput{
                 position: relative;
@@ -1326,8 +1325,6 @@ main{
                 box-shadow: 0 0 5px rgba(31, 58, 236, 0.5);
                 transition: all 0.3s ease;
             }
-
-          
         }
         .formularioBtn{
                 align-self: center;
@@ -1360,16 +1357,222 @@ main{
                 &:hover{
                     text-shadow: 0 0 2px rgba(14, 44, 236, 0.55);
                     font-style: normal;
-                    
                 }
             }
+        }
+    .forms-cambiar-recup-clave{
+        display: flex;
+        justify-content: space-between;
+        height: 90%;
+        width: 98%;
+
+        .verifiacion-correo, .modificacion-clave{
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            .formularioGrupo{
+                grid-column: span 1;
+                height: 4rem;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                justify-content: space-between;
+                border: 2px solid transparent;
+                border-bottom-left-radius: 10px;
+                border-top-right-radius: 10px;
+                border-image-source: linear-gradient(to left, #00f, transparent);
+                border-image-slice: 1;
+                border-image-width: 2px;
+                border-image-outset: 0;
+                border-image-repeat: stretch;
+        
+                .formularioGrupoInput{
+                    position: relative;
+                    width: 80%;
+                    height: 70%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .formularioLabel{
+                        position: absolute;
+                        top: 15%;
+                        left: 50%;
+                        transform: translate(-50%, -50%); 
+                        width: auto;
+                        padding: 0 1rem;
+                        font-size: 0.9rem;
+                        white-space: nowrap;   
+                        display: inline-block;
+                        font-weight: 700;
+                        letter-spacing: 0.1rem;
+                        font-family: 'Parkinsans', sans-serif;
+                        background-color: var(--azul-cielo-text);
+                        border-radius: 5px;
+                        color: white;
+                        z-index: 20;
+                        transition: all 0.3s ease;
+                        pointer-events: none;     
+                        opacity: 0;
+                
+                    }
+                    .input{
+                        height: 80%;
+                        width: 100%;
+                        border: 1px solid var(--azul-cielo-text);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;  
+                        border-radius: 5px;
+                        padding: 0 2%;
+                        box-sizing: border-box;
+                        input{
+                            border: none;
+                            height: 90%;
+                            background-color: transparent;
+                            &::placeholder{
+                                font-size: 90%;
+                                letter-spacing: 10%;
+                                font-family: 'Nova Round', sans-serif;
+                                transition:  opacity 0.2s ease;
+                                color: var(--azul-cielo-text);
+                            }
+                            &:focus{
+                                outline: none;
+                                border: none;
+
+                                &::placeholder{
+                                    opacity: 0;
+                                }
+                            }
+                        }
+                        .fa-circle-xmark{
+                            opacity: 0;
+                            color: rgba(249, 3, 3, 0.808);
+                            transition: all ease 0.3s;
+                        }
+                    }
+                    .inputError{
+                        box-shadow: 0 0 8px rgba(249, 3, 3, 0.808);
+                        transition: all ease 0.3s;
+                        border: 1px solid red;
+
+                        input::placeholder{
+                            color:  red;
+                            opacity: 0.8;
+                            transition: all ease 0.3s;
+                        }
+                    }
+                    
+        
+                }
+                    
+            }
+            .formularioGrupoMensajes{
+                height: 20%;
+                width: 100%;    
+                position: relative;
+                .leyendaInput{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    font-size: 80%;
+                    font-style: oblique;
+                    margin: 0;
+                    opacity: 1;
+                    transition: opacity 0.9s ease-out;
+                }
+                .errorInput{
+                    display: flex ;
+                    font-size: 80%;
+                    font-style: oblique;
+                    margin: 0;
+                    color: red;
+                    opacity: 1;
+                    transition: opacity 0.9s ease-out;
+                }
+                .ocultarMsjInput{
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.4s ease;
+                }
+            }
+            /* para transicion al activar el input   */
+            .formularioGrupoInput:focus-within .formularioLabel,
+            .formularioInput:not(:placeholder-shown) ~ .formularioLabel {
+                opacity: 1;
+                transition: all ease 0.5s;
+            }
+            .formularioGrupoInput:focus-within .input,
+            .formularioInput:not(:placeholder-shown) ~ .input {
+                border: 2px solid var(--azul-cielo-text); 
+                box-shadow: 0 0 5px rgba(31, 58, 236, 0.5);
+                transition: all 0.3s ease;
+            }
+            .formularioBtn{
+                align-self: center;
+                    width: 50%;
+                    height: 3em;
+                    border-radius: 60px;
+                    transition: all ease 0.2s;
+                    position: relative;
+                    background-color: var(--azul-claro-background);
+                    color: var(--azul-cielo-text);
+                    font-weight: 600;
+                    border: 2px solid #ccc;
+                    font-weight: 700;
+                    cursor: pointer;
+                    margin: 0;
+                &:hover{
+                    background-color: var(--azul-claro-background);
+                    color: var(--azul-oscuro-text);
+                    box-shadow: var(--sombra-interna-contenedor);
+                }
+                }
+        }
+        
+        }
+    }
+    
+
+
+    .ocultarElemento{
+        opacity: 1;
+        animation-name: ocultar-elemento;
+        animation-duration: 0.3s;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+    @keyframes ocultar-elemento {
+        from {opacity: 1;
+        }
+        to {opacity: 0;}
+    }
+    .mostrarElemento{
+        opacity: 0;
+        animation-name: mostrar-elemento;
+        animation-duration: 0.5s;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+    @keyframes mostrar-elemento {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
 
 }
 .visible{
     display: flex;
 }
 .oculto{
-    display: none;
+    display: none !important;
+
 }
 
 

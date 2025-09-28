@@ -102,7 +102,7 @@
         <comp-carrito class="carrito"></comp-carrito>
         <main>
             <div class="comp-form-ingresar">
-                <form class="form-ingresar">
+                <form class="form-ingresar oculto">
                     <div class="formularioGrupo">
                         <div class="formularioGrupoInput">
                             <label for="correo-ingresar" class="formularioLabel">Correo electronico</label>
@@ -116,7 +116,6 @@
                             <p class="errorInput ocultarMsjInput">Correo no registrado</p>
                         </div>
                     </div>
-
                     <div class="formularioGrupo">
                         <div class="formularioGrupoInput">
                             <label for="password-ingresar" class="formularioLabel">Clave</label>
@@ -134,7 +133,7 @@
                     <button type="submit" class="formularioBtn">Enviar</button>
                     <button type="button" id="cambiar-recup-clave">Cambiar o recuperar Claver</button>
                 </form>
-                <div class="forms-cambiar-recup-clave oculto">
+                <div class="forms-cambiar-recup-clave"> 
                     <form class="verifiacion-correo">
                         <div class="formularioGrupo">
                             <div class="formularioGrupoInput">
@@ -152,7 +151,8 @@
                     <button type="submit" class="formularioBtn">Verificar Correo</button>
                     </form>
 
-                    <form class="modificacion-clave ">
+                    <form class="modificacion-clave">
+                        <input type="text" name="username" autocomplete="username" hidden>
                         <div class="formularioGrupo" id="grupoPassword">
                             <div class="formularioGrupoInput">
                                 <label for="cambiar-password" class="formularioLabel">Nueva clave</label>
@@ -181,13 +181,10 @@
                                 <p class="errorInput ocultarMsjInput">Error en confirmacion de clave</p>
                             </div>
                         </div>
-                        <div class="formularioGrupo">
                             <button type="submit" class="formularioBtn">Enviar</button>
                             <p class="formularioMensajeExito"></p>
-                        </div>
                     </form>
-                </div>
-                
+                </div> 
             </div>
         </main> 
         <comp-footer class="comp-footer"></comp-footer> 
