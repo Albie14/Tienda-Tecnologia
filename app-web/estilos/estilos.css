@@ -1186,16 +1186,6 @@ main{
             font-size: 150%;
         }
     }
-
-    /* quitar el toggle por defecto de las claves */
-    input[type="password"]::-ms-reveal,
-    input[type="password"]::-ms-clear {
-    display: none;
-    }
-    input[type="password"]::-webkit-credentials-auto-fill-button {
-    visibility: hidden;
-    display: none !important;
-    }
 }
 
 .comp-form-ingresar{
@@ -1215,15 +1205,12 @@ main{
         align-items: stretch;
         justify-content: space-around;
         height: 90%;
-        width: 80%;
-    
+        width: 60%;
         .formularioGrupo{
             grid-column: span 1;
             height: 4rem;
-            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 2px;
             justify-content: space-between;
             border: 2px solid transparent;
             border-bottom-left-radius: 10px;
@@ -1299,6 +1286,7 @@ main{
                         color: rgba(249, 3, 3, 0.808);
                         transition: all ease 0.3s;
                     }
+            
                 }
                 .inputError{
                     box-shadow: 0 0 8px rgba(249, 3, 3, 0.808);
@@ -1317,7 +1305,6 @@ main{
             .formularioInput:not(:placeholder-shown) ~ .formularioLabel {
                 opacity: 1;
                 transition: all ease 0.5s;
-
             }
             .formularioGrupoInput:focus-within .input,
             .formularioInput:not(:placeholder-shown) ~ .input {
@@ -1326,40 +1313,71 @@ main{
                 transition: all 0.3s ease;
             }
         }
-        .formularioBtn{
-                align-self: center;
-                    width: 50%;
-                    height: 3em;
-                    border-radius: 60px;
-                    transition: all ease 0.2s;
-                    position: relative;
-                    background-color: var(--azul-claro-background);
-                    color: var(--azul-cielo-text);
-                    font-weight: 600;
-                    border: 2px solid #ccc;
-                    font-weight: 700;
-                    cursor: pointer;
-                    margin: 0;
-                &:hover{
-                    background-color: var(--azul-claro-background);
-                    color: var(--azul-oscuro-text);
-                    box-shadow: var(--sombra-interna-contenedor);
-                }
-                }
-                #cambiar-recup-clave{
-                border: none;
-                background-color: transparent;
-                cursor: pointer;
-                font-size: 90%;
+        .formularioGrupoMensajes{
+            height: 20%;
+            width: 100%;    
+            position: relative;
+            .leyendaInput{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                font-size: 80%;
                 font-style: oblique;
-                transition: all ease 0.2s;
-                text-align: right;
-                &:hover{
-                    text-shadow: 0 0 2px rgba(14, 44, 236, 0.55);
-                    font-style: normal;
-                }
+                margin: 0;
+                opacity: 1;
+                transition: opacity 0.9s ease-out;
+            }
+            .errorInput{
+                display: flex ;
+                font-size: 80%;
+                font-style: oblique;
+                margin: 0;
+                color: red;
+                opacity: 1;
+                transition: opacity 0.9s ease-out;
+            }
+            .ocultarMsjInput{
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease;
             }
         }
+        .formularioBtn{
+            align-self: center;
+            width: 50%;
+            height: 3em;
+            border-radius: 60px;
+            transition: all ease 0.2s;
+            position: relative;
+            background-color: var(--azul-claro-background);
+            color: var(--azul-cielo-text);
+            font-weight: 600;
+            border: 2px solid #ccc;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 0;
+            &:hover{
+                background-color: var(--azul-claro-background);
+                color: var(--azul-oscuro-text);
+                box-shadow: var(--sombra-interna-contenedor);
+            }
+        }
+        #cambiar-recup-clave{
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 90%;
+            font-style: oblique;
+            transition: all ease 0.2s;
+            text-align: right;
+            &:hover{
+                text-shadow: 0 0 2px rgba(14, 44, 236, 0.55);
+                font-style: normal;
+            }
+        }
+    }
+    /* seccion cambiar-recuperar clave */
     .forms-cambiar-recup-clave{
         display: flex;
         justify-content: space-between;
@@ -1536,37 +1554,44 @@ main{
         }
         
         }
-    }
-    
-
-
-    .ocultarElemento{
-        opacity: 1;
-        animation-name: ocultar-elemento;
-        animation-duration: 0.3s;
-        animation-delay: 0s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-    }
-    @keyframes ocultar-elemento {
-        from {opacity: 1;
-        }
-        to {opacity: 0;}
-    }
-    .mostrarElemento{
-        opacity: 0;
-        animation-name: mostrar-elemento;
-        animation-duration: 0.5s;
-        animation-delay: 0s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-    }
-    @keyframes mostrar-elemento {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-
 }
+
+
+.ocultarElemento{
+    opacity: 1;
+    animation-name: ocultar-elemento;
+    animation-duration: 0.3s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes ocultar-elemento {
+    from {opacity: 1;
+    }
+    to {opacity: 0;}
+}
+.mostrarElemento{
+    opacity: 0;
+    animation-name: mostrar-elemento;
+    animation-duration: 0.5s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes mostrar-elemento {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/* quitar el toggle por defecto de las claves */
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+    display: none;
+    }
+    input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    }
+
 .visible{
     display: flex;
 }

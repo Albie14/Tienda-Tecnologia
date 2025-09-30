@@ -52,25 +52,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     navegar("/inicio")
-
-    const formIngresar = document.querySelector('.form-ingresar');
-    const btnCmabiarRecuperarClave = document.getElementById('cambiar-recup-clave');
-    const formCambiarRecuperarClave = document.querySelector('.forms-cambiar-recup-clave')
-
-    // btnCmabiarRecuperarClave.addEventListener('click', ()=>{
-        
-
-    //     formIngresar.classList.add('ocultarElemento');
-    //     setTimeout(()=>{
-    //         formIngresar.classList.add('oculto')
-    //     }, 400)
-    //        formCambiarRecuperarClave.classList.add('mostrarElemento');
-    // setTimeout(()=>{
-    //         formIngresar.classList.add('oculto')
-    //     formCambiarRecuperarClave.classList.remove('oculto');
-    // }, 300)
-
-    // })
- 
-
 });

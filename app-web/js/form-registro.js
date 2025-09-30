@@ -6,55 +6,55 @@ document.addEventListener('DOMContentLoaded', ()=>{
         telefono: /^\d{7,14}$/ // 7 a 14 numeros.
     };
 
-    const compFormulario = document.querySelector('comp-form-registro');
-    const formularioRegistro = compFormulario.querySelector('.formulario-registro');
+    const compFormularioRegistro = document.querySelector('comp-form-registro');
+    const formularioRegistro = compFormularioRegistro.querySelector('.formulario-registro');
    
     function validacionFormulario (e){
         e.preventDefault();
 
-        let nombre = compFormulario.querySelector('#nombre');
-        let apellido = compFormulario.querySelector('#apellido');
-        let password = compFormulario.querySelector('#password');
-        let password2 = compFormulario.querySelector('#password2');
-        let correo = compFormulario.querySelector('#correo');
-        let telefono = compFormulario.querySelector('#telefono');
-        let terminosCondiciones = compFormulario.querySelector('#terminos-condiciones');
+        let nombre = compFormularioRegistro.querySelector('#nombre');
+        let apellido = compFormularioRegistro.querySelector('#apellido');
+        let password = compFormularioRegistro.querySelector('#password');
+        let password2 = compFormularioRegistro.querySelector('#password2');
+        let correo = compFormularioRegistro.querySelector('#correo');
+        let telefono = compFormularioRegistro.querySelector('#telefono');
+        let terminosCondiciones = compFormularioRegistro.querySelector('#terminos-condiciones');
 
         //Alarmas de error de los inputs
-        const contenedorInput = compFormulario.querySelectorAll('.input');
-        const msjLeyendaInput = compFormulario.querySelectorAll('.leyendaInput');
-        const msjErrorInput = compFormulario.querySelectorAll('.errorInput');
-        const iconoError = compFormulario.querySelectorAll('.iconoError');
-        const msjErrorGeneral = compFormulario.querySelector('#formularioMensajeError');
+        const contenedorInput = compFormularioRegistro.querySelectorAll('.input');
+        const msjLeyendaInput = compFormularioRegistro.querySelectorAll('.leyendaInput');
+        const msjErrorInput = compFormularioRegistro.querySelectorAll('.errorInput');
+        const iconoError = compFormularioRegistro.querySelectorAll('.iconoError');
+        const msjErrorGeneral = compFormularioRegistro.querySelector('#formularioMensajeError');
 
         let formularioValido = true;
 
         if(!expresioneRegularesForm.nombre.test(nombre.value.trim())){
-            alaramasErrorDatoinput(contenedorInput[0], iconoError[0], msjLeyendaInput[0], msjErrorInput[0], msjErrorGeneral);
+            alarmasErrorDatoinput(contenedorInput[0], iconoError[0], msjLeyendaInput[0], msjErrorInput[0], msjErrorGeneral);
             formularioValido = false;
         }
 
         if(!expresioneRegularesForm.nombre.test(apellido.value.trim())){
-            alaramasErrorDatoinput(contenedorInput[1], iconoError[1], msjLeyendaInput[1], msjErrorInput[1], msjErrorGeneral);
+            alarmasErrorDatoinput(contenedorInput[1], iconoError[1], msjLeyendaInput[1], msjErrorInput[1], msjErrorGeneral);
             formularioValido = false;
         }
 
         if(!expresioneRegularesForm.password.test(password.value.trim())){
-            alaramasErrorDatoinput(contenedorInput[2], iconoError[2], msjLeyendaInput[2], msjErrorInput[2], msjErrorGeneral);
+            alarmasErrorDatoinput(contenedorInput[2], iconoError[2], msjLeyendaInput[2], msjErrorInput[2], msjErrorGeneral);
             formularioValido = false;
         }
 
         if(password2.value.trim() !== password.value.trim() || password2.value == ''){
-            alaramasErrorDatoinput(contenedorInput[3], iconoError[3], msjLeyendaInput[3], msjErrorInput[3], msjErrorGeneral);
+            alarmasErrorDatoinput(contenedorInput[3], iconoError[3], msjLeyendaInput[3], msjErrorInput[3], msjErrorGeneral);
             formularioValido = false;
         }
         if(!expresioneRegularesForm.correo.test(correo.value.trim())){
-            alaramasErrorDatoinput(contenedorInput[4], iconoError[4], msjLeyendaInput[4], msjErrorInput[4], msjErrorGeneral);
+            alarmasErrorDatoinput(contenedorInput[4], iconoError[4], msjLeyendaInput[4], msjErrorInput[4], msjErrorGeneral);
             formularioValido = false;
         }
 
         if(!expresioneRegularesForm.telefono.test(telefono.value.trim())){
-            alaramasErrorDatoinput(contenedorInput[5], iconoError[5], msjLeyendaInput[5], msjErrorInput[5], msjErrorGeneral);
+            alarmasErrorDatoinput(contenedorInput[5], iconoError[5], msjLeyendaInput[5], msjErrorInput[5], msjErrorGeneral);
             formularioValido = false;
         }
 
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
     /*Marcas de errores visuales en inputs*/
-    function alaramasErrorDatoinput(contInput, icono, leyenda, msjError, msjErrorGeneral){
+    function alarmasErrorDatoinput(contInput, icono, leyenda, msjError, msjErrorGeneral){
         contInput.classList.add('inputError');
         icono.style.opacity = 1;
         leyenda.classList.add('ocultarMsjInput');
@@ -125,11 +125,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
     //toogle ojo; mostrar - ocultar clave
-    const botonesOjoClave = document.querySelectorAll('.icono-toogle-clave-registro');
+    const botonesOjoClave = compFormularioRegistro.querySelectorAll('.icono-toogle-clave-registro');
     botonesOjoClave.forEach(ojo=>{
         ojo.addEventListener('click', ()=>{
             const inputID = ojo.dataset.input; /*toma el ID de cada input enlazados con "data-input=" provenient del id de input*/
-            const input = document.getElementById(inputID) /*asigna el id al input seleccionado a traves del data input*/
+            const input = compFormularioRegistro.querySelector(`#${inputID}`) /*asigna el id al input seleccionado a traves del data input*/
             const typeInput = input.getAttribute('type') /*reconoce el type (password o text) del input seleccionado*/
             
             input.setAttribute('type', typeInput === 'password' ? 'text' : 'password');
