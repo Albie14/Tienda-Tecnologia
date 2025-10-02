@@ -840,9 +840,6 @@ main{
         perspective: 500px;
         display: flex;
         align-items: center;
-        /* background: transparent; */
-        /* background-size: 100% 100%; */
-        /* background-color: red; */
         transition: transform 0.5s ease;
         border-radius: 40px;
 
@@ -1567,6 +1564,69 @@ main{
     animation-delay: 0s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+}
+
+.comp-contactanos{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    box-sizing: border-box;
+    .contactos{
+        width: 45%;
+        height: 100%;
+        border-bottom-left-radius: 60px;
+        border-top-left-radius: 60px;
+        box-shadow: var(--sombra-interna-contenedor);
+        box-sizing: border-box;
+        padding: 2% 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .datos{
+            display: block;
+            height: 20%;
+            margin: 0;
+            
+            .titulo{
+                display: flex;
+                align-items: center;
+                padding: 2% 1%;
+                height: 40%;
+                
+                h2{
+                    position: relative;
+                    &::before{
+                        content: '';
+                        width: 50%;
+                        height: 1.5px;
+                        background-color: var(--azul-oscuro-text);
+                        display: inline-block;
+                        position: absolute;
+                        bottom: 0;
+                        box-shadow: 0 0 5px rgb(77, 77, 156);
+                    }
+                }
+                i{
+                    font-size: 120%;
+                    margin-right: 2%;
+                }
+            }
+            .cuerpo{
+                padding-left: 7%;
+                font-size: 100%;
+
+                a{
+                    color: var(--azul-oscuro-text);
+                    transition: ease .2s all;
+                    &:hover{
+                        color: var(--azul-cielo-text);
+                        text-shadow: 0 0 2px rgb(77, 77, 156);;
+                    }
+                }
+            }
+        }
+    }
 }
 @keyframes ocultar-elemento {
     from {opacity: 1;
