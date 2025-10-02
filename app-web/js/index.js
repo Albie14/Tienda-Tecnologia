@@ -50,6 +50,78 @@ document.addEventListener("DOMContentLoaded", () => {
             navegar(ruta)
         })
     })
+    navegar("/inicio");
 
-    navegar("/inicio")
-});
+    // cambio botones, ingresar y cerrar sesion(eliminar setItem sessionStorage)
+    //estado del usuario logueado y funcionalidad del boton ingresar;
+    const btnAbrirCerrraSesion = document.getElementById('btn-ingresar-cerrar-sesion');
+    
+    function actulizarBoton (){
+        const usuarioSesion = sessionStorage.getItem('usuarioSesion');
+        console.log('estado actua: ', usuarioSesion);
+        if(usuarioSesion){
+            btnAbrirCerrraSesion.textContent = "Cerrar sesion";
+        }else{
+            btnAbrirCerrraSesion.textContent = "Ingresar";
+        }
+    }
+    
+    btnAbrirCerrraSesion.addEventListener("click", ()=>{
+        const usuarioSesion = sessionStorage.getItem('usuarioSesion');
+
+        if(usuarioSesion){
+            sessionStorage.removeItem('usuarioSesion');
+            actulizarBoton();
+            navegar("/inicio");
+        }else{
+            navegar("/ingresar")
+        }
+    });
+
+    window.addEventListener("popstate", ()=>{
+        actulizarBoton()
+    })
+    actulizarBoton();
+})
+
+//  const btnAbrirCerrraSesion = document.getElementById('btn-ingresar-cerrar-sesion');
+    
+//     function actulizarBoton (){
+//         const usuarioSesion = sessionStorage.getItem('usuarioSesion');
+
+//         if(usuarioSesion){
+//             btnAbrirCerrraSesion.textContent = "Cerrar sesion";
+//         }else{
+//             btnAbrirCerrraSesion.textContent = "Ingresar";
+//         }
+//     }
+
+//     btnAbrirCerrraSesion.addEventListener('click', ()=>{
+//         const usuarioSesion = sessionStorage.getItem('usuarioSesion');
+
+//         if(usuarioSesion){
+//             sessionStorage.removeItem("usuarioSecion");
+//             actulizarBoton();
+//             navegar("/inicio")
+//         }else{
+//             navegar("/ingresar")
+//         }
+//     });
+//     actulizarBoton()
+
+
+//  const usuarioSesion = sessionStorage.getItem('usuarioSesion');
+
+//         if(usuarioSesion){
+//             btnAbrirCerrraSesion.textContent = "Cerrar sesion";
+//             btnAbrirCerrraSesion.addEventListener("click", ()=>{
+//                 btnAbrirCerrraSesion.textContent = "Ingresar";
+//                 sessionStorage.removeItem('usuarioSesion');
+//                 navegar("/inicio");
+//             })
+
+//         }else{
+//             btnAbrirCerrraSesion.textContent = "Ingresar";
+            
+
+//         }

@@ -45,22 +45,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
             const data = await response.json();
             if (data.acceso === 'permitido') {
                 
-                // se guardar la informacion del usuario para mantener la sesion activa
+                // se guardar la informacion del usuario para mantener la sesion activa y se cambia el funcionalidad del boton a cerrar sesion
                 const nombreUsuarioIngresado = data.nombre;
                 const apellidoUsuarioIngresado = data.apellido;
+                const logueado = true;
 
-
-                console.log(nombreUsuarioIngresado);
-                console.log(apellidoUsuarioIngresado)
+                const btnAbrirCerrraSesion = document.getElementById('btn-ingresar-cerrar-sesion');
+    
                 sessionStorage.setItem('usuarioSesion', JSON.stringify({
                     nombre: nombreUsuarioIngresado,
-                    apellido: apellidoUsuarioIngresado    
+                    apellido: apellidoUsuarioIngresado,
                 }));
-        
-                setTimeout(()=>{
-                    formularioIngresar.reset();
-                    window.location.href = '/app-web/html/index.html';
-                }, 2000)
+                    setTimeout(()=>{
+                        formularioIngresar.reset();
+                        window.location = "/app-web/html/index.html";
+                    }, 2000)
                 return;
             }
 
@@ -79,7 +78,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
-
+    const usuarioSesion = sessionStorage.getItem('usuarioSesion');
+  
     formularioIngresar.addEventListener('submit', (e)=>{
         e.preventDefault();
         validacionFormularioIngresar(e)

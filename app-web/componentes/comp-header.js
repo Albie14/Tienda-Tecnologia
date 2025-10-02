@@ -28,7 +28,7 @@ class CompHeader extends HTMLElement{
                 <div class="nav-secciones">
                     <a href="#">Usuario</a>
                     <ul class="usuario-secciones">
-                        <li><a href="#" data-route="/ingresar">Ingresar</a></li>
+                        <li id="cont"><a href="#" data-route="/ingresar" id="btn-ingresar-cerrar-sesion">Ingresar</a></li>
                         <li><a href="#" data-route="/registrarse">Registrarse</a></li>
                     </ul>
                 </div>

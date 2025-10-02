@@ -10,87 +10,61 @@
     <title>Tienda Tecnologica</title>
 </head>
 <body>
+    <comp-header class="header"></comp-header>
+    <comp-carrito class="carrito"></comp-carrito>
+    
     <div class="vista active" data-route="/inicio">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <comp-aside-main class="lateral"></comp-aside-main>
             <comp-hero  class="hero"></comp-hero>
         </main> 
     
         <comp-section class="comp-section"></comp-section>
-    
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/productos">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <h2>productos</h2>
         </main> 
-
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/productos/pcs">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <h2>productos - pcs</h2>
         </main> 
-
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/productos/laptops">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <h2>productos/laptops</h2>
         </main> 
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/productos/accesorios">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <h2>productos/accesorios</h2>
         </main> 
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/productos/audio-video">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <h2>productos/audio-video</h2>
         </main> 
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/productos/mobiliario">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <h2>/productos/mobiliario</h2>
         </main> 
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/nosotros">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <h2>nosotros</h2>
         </main> 
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/contactanos">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <h2>contactanos</h2>
         </main> 
@@ -98,22 +72,19 @@
     </div>
 
     <div class="vista" data-route="/ingresar">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <comp-form-ingresar class="comp-form-ingresar"></comp-form-ingresar>
         </main> 
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
 
     <div class="vista" data-route="/registrarse">
-        <comp-header class="header"></comp-header>
-        <comp-carrito class="carrito"></comp-carrito>
         <main>
             <comp-form-registro class="comp-form-registro"></comp-form-registro>
         </main> 
-        <comp-footer class="comp-footer"></comp-footer> 
     </div>
+    
+    <comp-footer class="comp-footer"></comp-footer> 
+
     <script type="module" src="/app-web/componentes/comp-form-ingresar.js"></script>
     <script type="module" src="/app-web/componentes/comp-form-registro.js"></script>
     <script type="module" src="/app-web/componentes/comp-section.js"></script>
@@ -125,7 +96,7 @@
     <script type="module" src="/app-web/componentes/comp-footer.js"></script>
     <script src="/app-web/js/form-registro.js"></script>
     <script src="/app-web/js/form-ingresar.js"></script>
-    <script src="/app-web/js/index.js"></script>
+    <script type="module" src="/app-web/js/index.js"></script>
     <script src="/app-web/js/carrusel-hero.js"></script>
 </body>
 </html>
