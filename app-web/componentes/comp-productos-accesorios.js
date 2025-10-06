@@ -1,9 +1,9 @@
-class CompProductos extends HTMLElement{
+class CompProductosAccesorios extends HTMLElement{
     constructor(){
         super();
         this.innerHTML =
         `
-        <h2>Todos los productos</h2>
+        <h2>Accesorios</h2>
         <div class="contenedor-productos">
             
         </div>`;
@@ -14,14 +14,16 @@ class CompProductos extends HTMLElement{
 
     async cargarProductos(){
         try{
+            const categoria = "accesorios";
+            const response = await fetch (`http://localhost/tienda-tecnologia-php/productos/inventario-prod.php?categoria=${categoria}`);
 
-            const response = await fetch ('http://localhost/tienda-tecnologia-php/productos/inventario-prod.php');
             if(!response.ok){
                 throw new Error("Error al cargar productos");
             }
             const data = await response.json();
             const contenedorProductos = this.querySelector('.contenedor-productos');
             contenedorProductos.innerHTML = "";
+            
 
             data.forEach(dato=>{
                 const tarjetaProducto = document.createElement('div');
@@ -59,4 +61,4 @@ class CompProductos extends HTMLElement{
         }
     }
 }
-customElements.define('comp-productos', CompProductos);
+customElements.define('comp-productos-accesorios', CompProductosAccesorios);

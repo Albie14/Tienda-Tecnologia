@@ -31,31 +31,36 @@
 
     <div class="vista" data-route="/productos/pcs">
         <main>
-            <h2>productos - pcs</h2>
+            <comp-aside-main class="lateral"></comp-aside-main>
+            <comp-productos-pcs class="comp-productos"></comp-productos-pcs>
         </main> 
     </div>
 
     <div class="vista" data-route="/productos/laptops">
         <main>
-            <h2>productos/laptops</h2>
+            <comp-aside-main class="lateral"></comp-aside-main>
+            <comp-productos-laptops class="comp-productos"></comp-productos-laptops>
         </main> 
     </div>
 
     <div class="vista" data-route="/productos/accesorios">
         <main>
-            <h2>productos/accesorios</h2>
+            <comp-aside-main class="lateral"></comp-aside-main>
+            <comp-productos-accesorios class="comp-productos"></comp-productos-accesorios>
         </main> 
     </div>
 
     <div class="vista" data-route="/productos/audio-video">
         <main>
-            <h2>productos/audio-video</h2>
+            <comp-aside-main class="lateral"></comp-aside-main>
+            <comp-productos-audio-video class="comp-productos"></comp-productos-audio-video>
         </main> 
     </div>
 
     <div class="vista" data-route="/productos/mobiliario">
         <main>
-            <h2>/productos/mobiliario</h2>
+            <comp-aside-main class="lateral"></comp-aside-main>
+            <comp-productos-mobiliario class="comp-productos"></comp-productos-audio-video>
         </main> 
     </div>
 
@@ -86,6 +91,11 @@
     <comp-footer class="comp-footer"></comp-footer> 
 
     <script type="module" src="/app-web/componentes/comp-productos.js"></script>
+    <script type="module" src="/app-web/componentes/comp-productos-pcs.js"></script>
+    <script type="module" src="/app-web/componentes/comp-productos-laptops.js"></script>
+    <script type="module" src="/app-web/componentes/comp-productos-audio-video.js"></script>
+    <script type="module" src="/app-web/componentes/comp-productos-accesorios.js"></script>
+    <script type="module" src="/app-web/componentes/comp-productos-mobiliario.js"></script>
     <script type="module" src="/app-web/componentes/comp-contactanos.js"></script>
     <script type="module" src="/app-web/componentes/comp-form-ingresar.js"></script>
     <script type="module" src="/app-web/componentes/comp-form-registro.js"></script>
@@ -96,7 +106,6 @@
     <script type="module" src="/app-web/componentes/comp-hero.js"></script>
     <script type="module" src="/app-web/componentes/comp-aside-main.js"></script>
     <script type="module" src="/app-web/componentes/comp-footer.js"></script>
-    <!-- <script src="/app-web/js/productos.js"></script> -->
     <script src="/app-web/js/form-registro.js"></script>
     <script src="/app-web/js/form-ingresar.js"></script>
     <script type="module" src="/app-web/js/index.js"></script>
