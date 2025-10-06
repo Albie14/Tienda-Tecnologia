@@ -1,17 +1,3 @@
-
-// fetch('http://localhost/tienda-tecnologia-php/productos/inventario-prod.php')
-//     .then(response =>{
-//         if(!response.ok){
-//             throw new Error ("error en respuesta: " + response.status)
-//         } return response.json();
-//     })v
-//     .then(data=>{
-//         console.log(data)
-//     })
-//     .catch(error=>{
-//         console.log('error: ' + error)
-//     })
-
 document.addEventListener("DOMContentLoaded", () => {
 
     const enlaces = document.querySelectorAll("a[data-route]");
@@ -30,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function cambiarVista(ruta){
         vistas.forEach(vista=> {
             vista.classList.remove("active");
+            vista.style.display = "none";
             //transicion suave entre vistas
             vista.style.viewTransitionName = "none";
         
@@ -38,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rutaDestino = document.querySelector(`.vista[data-route="${ruta}"]`);
         if(rutaDestino){
             rutaDestino.classList.add("active");
+            rutaDestino.style.display = "block";
             //transicion suave entre vistas
             rutaDestino.style.viewTransitionName = "vista";
         }
@@ -58,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function actulizarBoton (){
         const usuarioSesion = sessionStorage.getItem('usuarioSesion');
-        console.log('estado actua: ', usuarioSesion);
         if(usuarioSesion){
             btnAbrirCerrraSesion.textContent = "Cerrar sesion";
         }else{
@@ -83,45 +70,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     actulizarBoton();
 })
-
-//  const btnAbrirCerrraSesion = document.getElementById('btn-ingresar-cerrar-sesion');
-    
-//     function actulizarBoton (){
-//         const usuarioSesion = sessionStorage.getItem('usuarioSesion');
-
-//         if(usuarioSesion){
-//             btnAbrirCerrraSesion.textContent = "Cerrar sesion";
-//         }else{
-//             btnAbrirCerrraSesion.textContent = "Ingresar";
-//         }
-//     }
-
-//     btnAbrirCerrraSesion.addEventListener('click', ()=>{
-//         const usuarioSesion = sessionStorage.getItem('usuarioSesion');
-
-//         if(usuarioSesion){
-//             sessionStorage.removeItem("usuarioSecion");
-//             actulizarBoton();
-//             navegar("/inicio")
-//         }else{
-//             navegar("/ingresar")
-//         }
-//     });
-//     actulizarBoton()
-
-
-//  const usuarioSesion = sessionStorage.getItem('usuarioSesion');
-
-//         if(usuarioSesion){
-//             btnAbrirCerrraSesion.textContent = "Cerrar sesion";
-//             btnAbrirCerrraSesion.addEventListener("click", ()=>{
-//                 btnAbrirCerrraSesion.textContent = "Ingresar";
-//                 sessionStorage.removeItem('usuarioSesion');
-//                 navegar("/inicio");
-//             })
-
-//         }else{
-//             btnAbrirCerrraSesion.textContent = "Ingresar";
-            
-
-//         }

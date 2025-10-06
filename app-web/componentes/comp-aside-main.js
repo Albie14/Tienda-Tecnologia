@@ -5,7 +5,7 @@ class CompAsideMain extends HTMLElement{
         `<section class="buscar">
             <label for="input-buscar">Buscar producto:</label>
             <div class="div-input-buscar">
-                <input type="text" id="input-buscar" autocomplete="on" placeholder="">
+                <input type="text" class="input-buscar" name="input-buscar" autocomplete="on" placeholder="">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </section>
