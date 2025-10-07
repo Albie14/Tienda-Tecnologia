@@ -2,10 +2,10 @@ class CompCarrito extends HTMLElement{
     constructor(){
         super();
         this.innerHTML =
-        `<div class="contenedor-pantalla-completa">
-            <i class="fa-solid fa-circle-xmark"></i>
+        `<div class="contenedor-pantalla-completa oculto">
+            <i class="fa-solid fa-circle-xmark btn-cerrar-carrito"></i>
             <div class="contenido-carrito">
-                <div class="detalle-carrito">
+                <div class="detalle-carrito oculto">
                     <h3>Tu compra</h3>
                     <table>
                         <thead>
@@ -74,7 +74,7 @@ class CompCarrito extends HTMLElement{
                     </div>
                 </div>
                 
-                <div class="carrito-vacio">
+                <div class="carrito-vacio visible">
                     <i class="fa-solid fa-face-sad-tear"></i>
                     <h3>Tu carrito esta vacio!!</h3>
                     <p>Solucionemos eso  <i class="fa-solid fa-arrow-rotate-left"></i></p>
