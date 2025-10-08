@@ -49,8 +49,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 const nombreUsuarioIngresado = data.nombre;
                 const apellidoUsuarioIngresado = data.apellido;
                 const logueado = true;
-
-                const btnAbrirCerrraSesion = document.getElementById('btn-ingresar-cerrar-sesion');
     
                 sessionStorage.setItem('usuarioSesion', JSON.stringify({
                     nombre: nombreUsuarioIngresado,
@@ -59,7 +57,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     setTimeout(()=>{
                         formularioIngresar.reset();
                         window.location = "/app-web/html/index.html";
-                    }, 2000)
+                    }, 1000)
                 return;
             }
 

@@ -19,9 +19,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
     document.addEventListener('click', (e)=>{
-
         const btnAgregar = e.target.closest('.btn-agregar-carrito');
+
         if(btnAgregar){
+            const usuarioSesion = sessionStorage.getItem('usuarioSesion');
+            if(!usuarioSesion){
+                    alert('beber ingresar a su cuenta, si no posee una; registrese')
+                    return
+            }
+            
             const producto = {
                 id: btnAgregar.dataset.id,
                 nombre: btnAgregar.dataset.nombre,
