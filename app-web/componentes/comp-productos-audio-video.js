@@ -49,7 +49,8 @@ class CompProductosAudioVideo extends HTMLElement{
                                 <span><strong>${dato.precio}</strong></span>
                             </div>
                             <div class="agregar-carrito">
-                                <button type="button">Agregar <i class="fa-solid fa-cart-plus"></i></button>
+                                <button type="button" class="btn-agregar-carrito" data-id="${dato.id}" data-nombre="${dato.nombre}" data-precio="${dato.precio}" data-imagen="${dato.imagen}" >
+                                Agregar <i class="fa-solid fa-cart-plus"></i></button>
                             </div>
                         </div>
                 `;

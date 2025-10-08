@@ -35,7 +35,7 @@ class CompHeader extends HTMLElement{
             </div>
             <div class="resumen-carrito">
                 <div class="total-carrito">
-                    $ <span></span>
+                    $ <span class="total-carrito-header"></span>
                 </div>
                 <button type="button" class="btn-carrito" aria-label="Abrir carrito"><i class="fa-solid fa-cart-shopping"></i></button>
                 <div class="total-productos">
