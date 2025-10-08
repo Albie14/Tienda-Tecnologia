@@ -53,7 +53,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 sessionStorage.setItem('usuarioSesion', JSON.stringify({
                     nombre: nombreUsuarioIngresado,
                     apellido: apellidoUsuarioIngresado,
+
                 }));
+                
                     setTimeout(()=>{
                         formularioIngresar.reset();
                         window.location = "/app-web/html/index.html";
@@ -76,15 +78,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
-    const usuarioSesion = sessionStorage.getItem('usuarioSesion');
-  
     formularioIngresar.addEventListener('submit', (e)=>{
         e.preventDefault();
         validacionFormularioIngresar(e)
     })
-
-
-
 
     // error visuales en input
     function alarmasErrorDatoinput(contInput, icono, leyenda, msjError){
@@ -114,5 +111,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
             ojo.classList.toggle('fa-eye-slash');
             ojo.classList.toggle('mostrar-clave');
             });
-        })
+    })
+
+    const usuarioSesion = sessionStorage.getItem('usuarioSesion');
+    const msjBienvenidaUsuario = document.querySelector('.msj-bienvenida-usuario');
+    if(usuarioSesion){
+        const usuario = JSON.parse(usuarioSesion);
+        
+        msjBienvenidaUsuario.classList.remove('oculto')
+        msjBienvenidaUsuario.textContent = `Bienvenido, ${usuario.nombre} ${usuario.apellido}, ya puede realizar su compra`
+    }else{
+        msjBienvenidaUsuario.textContent = "";
+        msjBienvenidaUsuario.classList.add('oculto');
+    }
+  
 })

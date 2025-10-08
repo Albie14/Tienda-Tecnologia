@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         if(btnAgregar){
             const usuarioSesion = sessionStorage.getItem('usuarioSesion');
             if(!usuarioSesion){
-                    alert('beber ingresar a su cuenta, si no posee una; registrese')
+                    alert('beber ingresar a su cuenta; si no posee una, registrese')
                     return
             }
             

@@ -1559,14 +1559,25 @@ main{
         }
 }
 
-.ocultarElemento{
-    opacity: 1;
-    animation-name: ocultar-elemento;
-    animation-duration: 0.3s;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+/* mensaje bienvenida una vez haya ingresado el usuario */
+.msj-bienvenida-usuario{
+    position: absolute;
+    top: 1%;
+    right: 5%;
+    width: fit-content;
+    height: 5vh;
+    z-index: 40;
+    background-color: var(--backgroud-espejo);  
+    border-radius: 60px;
+    box-sizing: border-box;
+    padding:0 2%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--azul-oscuro-text);
+    transition: all ease 0.5s;
 }
+
 
 .comp-contactanos{
     height: 100%;
@@ -1647,6 +1658,15 @@ main{
             border-top-right-radius: 40px;
         }
     }
+}
+
+.ocultarElemento{
+    opacity: 1;
+    animation-name: ocultar-elemento;
+    animation-duration: 0.3s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 @keyframes ocultar-elemento {
     from {opacity: 1;
